@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental English Course</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES --- */
+        :root {
+            --ee-bg: #ffffff;
+            --ee-card-bg: #ffffff;
+            --ee-primary: #22a856; 
+            --ee-primary-dark: #1b8c46;
+            --ee-text: #1a2e1a;
+            --ee-muted: #6b7280;
+            --ee-radius: 16px;
+        }
+
+        /* --- GLOBAL RESET --- */
+        body {
+            margin: 0;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--ee-bg);
+            color: var(--ee-text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- PAGE CONTAINER --- */
+        .ee-page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 24px 64px;
+        }
+
+        /* --- HEADER --- */
+        .ee-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .ee-logo {
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: 1.2rem;
+            color: #0f2815;
+        }
+
+        .ee-nav-btn {
+            border: none;
+            background: transparent;
+            color: var(--ee-text);
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .ee-hero {
+            background-color: #fff;
+            padding: 2rem 0 5rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ee-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        /* Left Column */
+        .ee-hero-text {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .ee-hero-title {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            font-weight: 400;
+            margin: 0 0 1.5rem 0;
+            color: #0f2815;
+        }
+
+        .ee-hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 300;
+        }
+
+        /* Hero List */
+        .ee-hero-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2.5rem 0;
+        }
+
+        .ee-hero-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            color: #2c2c2c;
+        }
+
+        .ee-icon {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Hero Note */
+        .ee-hero-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Right Column - Image */
+        .ee-hero-image-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .ee-hero-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- BUTTONS --- */
+        .ee-primary-btn {
+            background-color: var(--ee-primary);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(34, 168, 86, 0.2);
+            font-family: inherit;
+        }
+
+        .ee-primary-btn:hover {
+            background-color: var(--ee-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(34, 168, 86, 0.3);
+        }
+
+        .ee-secondary-btn {
+            border-radius: 999px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.98rem;
+            border: none;
+            cursor: pointer;
+            background: #e0f5ea;
+            color: var(--ee-primary-dark);
+            font-family: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .ee-secondary-btn:hover {
+            background: #ccefdf;
+        }
+
+        /* --- SECTIONS GENERAL --- */
+        .ee-section {
+            margin-bottom: 56px;
+        }
+
+        .ee-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+            color: #0f2815;
+        }
+
+        /* --- GRID & CARDS --- */
+        .ee-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .ee-grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .ee-grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .ee-card {
+            background: var(--ee-card-bg);
+            border-radius: var(--ee-radius);
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border: 1px solid #f0f0f0;
+        }
+
+        .ee-card h3 {
+            margin-top: 0;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .ee-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--ee-muted);
+            line-height: 1.5;
+        }
+
+        .ee-card-full {
+            grid-column: 1 / -1;
+        }
+
+        /* --- CERTIFICATE SECTION --- */
+        .ee-split {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 32px;
+            align-items: center;
+        }
+
+        .ee-section-highlight {
+            background: linear-gradient(135deg, #ebfdf4 0%, #f7faf7 100%);
+            padding: 40px;
+            border-radius: 28px;
+        }
+
+        .ee-cert-placeholder {
+            display: flex;
+            justify-content: center;
+        }
+
+        .ee-cert-mock {
+            width: 260px;
+            aspect-ratio: 4 / 5;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+            padding: 24px 20px;
+            text-align: center;
+            border: 4px solid #1a2e1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .ee-cert-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-family: serif;
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        .ee-cert-subtitle {
+            font-size: 0.8rem;
+            color: var(--ee-muted);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ee-cert-body {
+            font-size: 0.9rem;
+            font-family: serif;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        /* --- LISTS & STEPS --- */
+        .ee-bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        .ee-bullet-list li {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .ee-steps {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px;
+        }
+
+        .ee-steps li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .ee-steps span {
+            font-size: 1.5rem;
+        }
+
+        .ee-steps strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #0f2815;
+        }
+
+        .ee-steps p {
+            margin: 0;
+            color: var(--ee-muted);
+        }
+
+        .ee-center {
+            display: flex;
+            margin: 24px auto 0;
+            justify-content: center;
+        }
+
+        /* --- TAGS & QUOTES --- */
+        .ee-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .ee-tag-list span {
+            font-size: 0.9rem;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #e5f7ee;
+            color: var(--ee-primary-dark);
+            font-weight: 500;
+        }
+
+        .ee-quote {
+            background: #ffffff;
+            border-radius: var(--ee-radius);
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+            font-size: 1rem;
+            font-style: italic;
+            color: #444;
+        }
+
+        .ee-quote span {
+            display: block;
+            margin-top: 12px;
+            color: var(--ee-muted);
+            font-size: 0.9rem;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .ee-note {
+            margin-top: 16px;
+            font-size: 1rem;
+            color: var(--ee-muted);
+            font-style: italic;
+        }
+
+        /* --- FINAL CTA & FOOTER --- */
+        .ee-final-cta {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .ee-final-cta h2 {
+            margin-bottom: 16px;
+        }
+
+        .ee-final-cta p {
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .ee-footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: var(--ee-muted);
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE (MOBILE) --- */
+        @media (max-width: 768px) {
+            .ee-container {
+                flex-direction: column-reverse;
+                gap: 2rem;
+                text-align: left;
+            }
+
+            .ee-hero-title {
+                font-size: 2.2rem;
+            }
+
+            .ee-hero-image-wrapper {
+                justify-content: center;
+            }
+
+            .ee-split {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .ee-bullet-list {
+                text-align: left;
+            }
+
+            .ee-header {
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ee-page">
+        <header class="ee-header">
+            <div class="ee-logo">Enligten Academy</div>
+            <button class="ee-nav-btn">
+                Start Free 7-Day Course
+            </button>
+        </header>
+
+        <section class="ee-hero">
+            <div class="ee-container">
+                <div class="ee-hero-text">
+                    <h1 class="ee-hero-title">
+                        Earn Your Certificate<br>
+                        in Environmental<br>
+                        English — in 7 Days
+                    </h1>
+                    
+                    <p class="ee-hero-subtitle">
+                        A gentle 7-day email journey where you learn:
+                    </p>
+
+                    <ul class="ee-hero-list">
+                        <li>
+                            <span class="ee-icon">🌱</span> 
+                            <span>nature vocabulary</span>
+                        </li>
+                        <li>
+                            <span class="ee-icon">🗣️</span> 
+                            <span>practical English you can use daily</span>
+                        </li>
+                        <li>
+                            <span class="ee-icon">💡</span> 
+                            <span>simple eco concepts</span>
+                        </li>
+                        <li>
+                            <span class="ee-icon">🎓</span> 
+                            <span>printable Environmental English Certificate</span>
+                        </li>
+                    </ul>
+
+                    <button class="ee-primary-btn">
+                        <span style="margin-right: 8px;">→</span> Start Free 7-Day Course
+                    </button>
+
+                    <p class="ee-hero-note">
+                        Only 3 minutes a day. No spam.
+                    </p>
+                </div>
+
+                <div class="ee-hero-image-wrapper">
+                    <img
+                        src="./9e1b58d2-2f7a-48f1-93b0-5a26f71008a5.png" 
+                        alt="Happy student holding Environmental English certificate in nature"
+                        class="ee-hero-img"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <section class="ee-section">
+            <h2>📚 What You'll Learn in 7 Days</h2>
+            <div class="ee-grid">
+                <div class="ee-card">
+                    <h3>🌿 Day 1 – Nature Words in Daily Life</h3>
+                    <p>Simple English phrases about trees, plants, weather, and seasons.</p>
+                </div>
+                <div class="ee-card">
+                    <h3>🌊 Day 2 – Oceans, Water & Climate Language</h3>
+                    <p>Useful vocabulary for speaking about water, sea life, and protection.</p>
+                </div>
+                <div class="ee-card">
+                    <h3>🔥 Day 3 – Energy, Pollution & Solutions</h3>
+                    <p>Understand “renewable”, “waste”, “carbon footprint”, and more.</p>
+                </div>
+                <div class="ee-card">
+                    <h3>🌍 Day 4 – Earth, Land & Ecosystems</h3>
+                    <p>Learn the English words for forests, deserts, mountains, and habitats.</p>
+                </div>
+                <div class="ee-card">
+                    <h3>🐦 Day 5 – Animals & Birds (your favorite!)</h3>
+                    <p>Nature behavior, bird vocabulary, and speaking prompts.</p>
+                </div>
+                <div class="ee-card">
+                    <h3>🏡 Day 6 – Home & Sustainable Living</h3>
+                    <p>Speak about recycling, habits, and eco-friendly choices.</p>
+                </div>
+                <div class="ee-card ee-card-full">
+                    <h3>🧠 Day 7 – Review + Final Quiz</h3>
+                    <p>Complete a short quiz to unlock your certificate.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="ee-section ee-section-highlight">
+            <div class="ee-split">
+                <div>
+                    <h2>🎓 Your Certificate</h2>
+                    <p>
+                        When you finish the 7-day journey, you can unlock your:
+                    </p>
+                    <ul class="ee-bullet-list">
+                        <li>✨ <strong>Environmental English – Level 1 Certificate</strong></li>
+                        <li>Personalized with your name & completion date</li>
+                        <li>PDF format for school, university, job applications, language portfolio, and eco projects</li>
+                    </ul>
+                    <button class="ee-secondary-btn" style="margin-top: 20px;">
+                        👉 Upgrade for Certificate — $7
+                    </button>
+                </div>
+                <div class="ee-cert-placeholder">
+                    <div class="ee-cert-mock">
+                        <p class="ee-cert-title">Environmental English</p>
+                        <p class="ee-cert-subtitle">Level 1 Certificate</p>
+                        <p class="ee-cert-body">Awarded to [Your Name]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ee-section">
+            <h2>🌿 Why Learn Environmental English?</h2>
+            <div class="ee-grid ee-grid-2">
+                <ul class="ee-bullet-list">
+                    <li>• speak confidently about global topics</li>
+                    <li>• prepare for school & university presentations</li>
+                    <li>• improve your English in a meaningful way</li>
+                </ul>
+                <ul class="ee-bullet-list">
+                    <li>• understand eco topics in real life</li>
+                    <li>• join international conversations</li>
+                    <li>• feel connected to nature through language</li>
+                </ul>
+            </div>
+            <p class="ee-note">
+                And it’s softer, calmer, and more beautiful than textbook English.
+            </p>
+        </section>
+
+        <section class="ee-section">
+            <h2>✉️ How It Works</h2>
+            <ol class="ee-steps">
+                <li>
+                    <span>1️⃣</span>
+                    <div>
+                        <strong>Join the free 7-day email course</strong>
+                        <p>You receive your first lesson immediately.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>2️⃣</span>
+                    <div>
+                        <strong>Read one short lesson each day</strong>
+                        <p>Simple English + nature knowledge + examples.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>3️⃣</span>
+                    <div>
+                        <strong>Complete the final quiz</strong>
+                        <p>A gentle review of everything you learned.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>4️⃣</span>
+                    <div>
+                        <strong>Unlock your certificate</strong>
+                        <p>Get the Environmental English Certificate for only $7.</p>
+                    </div>
+                </li>
+            </ol>
+            <button class="ee-primary-btn ee-center">
+                👉 Start Free 7-Day Course →
+            </button>
+        </section>
+
+        <section class="ee-section">
+            <h2>💚 Who This Is For</h2>
+            <div class="ee-tag-list">
+                <span>English learners</span>
+                <span>students & teachers</span>
+                <span>immigrants</span>
+                <span>eco lovers</span>
+                <span>nature-connected people</span>
+                <span>wellness seekers</span>
+                <span>parents</span>
+                <span>anyone who loves learning in a calm way</span>
+            </div>
+            <p class="ee-note">
+                This course is warm, simple, emotional, and easy for all levels.
+            </p>
+        </section>
+
+        <section class="ee-section">
+            <h2>💬 Student Feedback</h2>
+            <div class="ee-grid ee-grid-3">
+                <div class="ee-quote">
+                    <p>
+                        “This is the first English course that felt like meditation. I
+                        learned, but I also felt calm.”
+                    </p>
+                    <span>– Nina</span>
+                </div>
+                <div class="ee-quote">
+                    <p>
+                        “The certificate helped me in my school portfolio. Thank you!”
+                    </p>
+                    <span>– Arjun</span>
+                </div>
+                <div class="ee-quote">
+                    <p>
+                        “I love nature vocabulary. I never learned this in textbooks.”
+                    </p>
+                    <span>– Sara</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ee-section ee-final-cta">
+            <h2>🌱 Ready to Grow Your English — and Your Connection to Nature?</h2>
+            <p>
+                Join the 7-day journey and earn your 
+                <strong>Environmental English Certificate — Level 1</strong>.
+            </p>
+            <button class="ee-primary-btn">
+                👉 Start Free 7-Day Course →
+            </button>
+            <p class="ee-hero-note">
+                Only 3 minutes a day. No stress, no spam.
+            </p>
+        </section>
+
+        <footer class="ee-footer">
+            © 2025 Enligten Academy
+        </footer>
+    </div>
+
+</body>
+</html>
