@@ -528,1138 +528,158 @@
                 </div>
                 <div class="ee-card card-4">
                     <span class="ee-day-label">Day 4</span>
-                        --radius-btn: 50px;
-            --container-width: 1180px;
-        }
-
-        /* --- 2. GLOBAL RESET --- */
-        * { box-sizing: border-box; }
-        
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-color);
-            color: var(--text-body);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4, p, ul, li { margin: 0; padding: 0; }
-        ul { list-style: none; }
-        a { text-decoration: none; }
-
-        .ee-container {
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* --- 3. BUTTONS & COMMON ELEMENTS --- */
-        .ee-btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 18px 36px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: var(--radius-btn);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .ee-btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        .ee-btn-secondary {
-            background-color: white;
-            color: var(--text-main);
-            border: 2px solid #e2e8f0;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: var(--radius-btn);
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-block;
-        }
-
-        .ee-btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .ee-section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .ee-section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ee-section { padding: 80px 0; }
-        .ee-bg-soft { background-color: var(--bg-soft); }
-        .ee-bg-green { background-color: var(--bg-green-soft); }
-
-        /* --- 4. HEADER --- */
-        .ee-header {
-            padding: 24px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .ee-logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--text-main);
-            letter-spacing: -0.02em;
-        }
-
-        .ee-nav-link {
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 16px;
-            transition: color 0.2s;
-        }
-        .ee-nav-link:hover { color: var(--primary); }
-
-        /* --- 5. HERO SECTION --- */
-        .ee-hero-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            padding-bottom: 60px;
-        }
-
-        .ee-hero-text { flex: 1.1; }
-
-        .ee-hero-title {
-            font-size: 3.2rem;
-            line-height: 1.15;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-
-        .ee-hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-body);
-            margin-bottom: 32px;
-        }
-
-        /* Hero Icons */
-        .ee-hero-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: #1e293b;
-        }
-
-        .ee-icon-box {
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .ee-hero-image-col {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            padding-top: 24px;
-        }
-
-        .ee-hero-img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 24px;
-            object-fit: cover;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
-        }
-
-        .ee-hero-note { font-size: 0.85rem; color: var(--text-light); margin-top: 16px; }
-
-        /* --- 6. WHAT YOU'LL LEARN (GRADIENT CARDS) --- */
-        .ee-badges-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 48px;
-        }
-
-        .ee-badge {
-            background: #dcfce7;
-            color: #14532d;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .ee-grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .ee-card {
-            border-radius: 24px;
-            padding: 40px 32px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-        .ee-card:hover { transform: translateY(-5px); }
-
-        .ee-day-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(0,0,0,0.5);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .ee-card-icon {
-            height: 80px;
-            width: 80px;
-            margin: 0 auto 24px;
-        }
-        
-        .ee-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .ee-card p { font-size: 1rem; color: #4b5563; }
-
-        /* Gradient Classes */
-        .card-1 { background: var(--grad-day1); }
-        .card-2 { background: var(--grad-day2); }
-        .card-3 { background: var(--grad-day3); }
-        .card-4 { background: var(--grad-day4); }
-        .card-6 { background: var(--grad-day6); }
-        .card-7 { background: var(--grad-day7); }
-
-        /* --- 7. CERTIFICATE SECTION --- */
-        .ee-split-section {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .ee-cert-list { margin: 24px 0 32px; }
-        .ee-cert-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-        }
-
-        /* Mockup of Certificate */
-        .ee-cert-mockup {
-            background: white;
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 4/5;
-            border-radius: 20px;
-            border: 10px solid #1e293b; /* Dark Frame */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .ee-cert-mockup::before {
-            content: '';
-            position: absolute;
-            top: 20px; bottom: 20px; left: 20px; right: 20px;
-            border: 2px solid #e2e8f0;
-            pointer-events: none;
-        }
-
-        .ee-cert-logo-icon {
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-        
-        .cert-title { font-family: serif; font-size: 2rem; font-weight: 700; color: var(--text-main); line-height: 1; margin-bottom: 8px;}
-        .cert-subtitle { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 24px; }
-        .cert-name { font-family: serif; font-style: italic; font-size: 1.2rem; margin-top: 20px; border-bottom: 1px solid #ddd; padding-bottom: 4px;}
-
-        /* --- 8. WHY & HOW SECTIONS --- */
-        .ee-features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-        }
-
-        .ee-feature-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .ee-step-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ee-step-item {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid #f1f5f9;
-        }
-
-        .ee-step-num {
-            background: var(--bg-green-soft);
-            color: var(--primary);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        /* --- 9. WHO & TESTIMONIALS --- */
-        .ee-tags-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ee-pill {
-            background: var(--bg-green-soft);
-            color: var(--text-main);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-        }
-
-        .ee-review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .ee-review-card {
-            background: var(--bg-soft);
-            padding: 32px;
-            border-radius: 16px;
-            text-align: center;
-        }
-        .ee-review-text { font-style: italic; font-size: 1.1rem; margin-bottom: 16px; color: #333; }
-        .ee-review-author { font-weight: 700; font-size: 0.9rem; color: var(--text-light); }
-
-        /* --- 10. FOOTER --- */
-        .ee-footer {
-            border-top: 1px solid #e2e8f0;
-            padding: 40px 0;
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 40px;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .ee-hero-wrapper, .ee-split-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-            }
-            .ee-hero-wrapper { flex-direction: column-reverse; } /* Image top on mobile */
-            .ee-hero-list li, .ee-cert-list li { justify-content: center; text-align: left; }
-            .ee-hero-image-col { justify-content: center; padding-top: 0; }
-            .ee-hero-title { font-size: 2.5rem; }
-            .ee-step-item { flex-direction: column; text-align: center; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="ee-container">
-        <header class="ee-header">
-            <div class="ee-logo">Enlighten Academy</div>
-            <a href="#" class="ee-nav-link">Log in</a>
-        </header>
-
-        <section class="ee-hero-section">
-            <div class="ee-hero-wrapper">
-                <div class="ee-hero-text">
-                    <h1 class="ee-hero-title">
-                        Earn Your Certificate<br>
-                        in Environmental<br>
-                        English — in 7 Days
-                    </h1>
-                    <p class="ee-hero-subtitle">
-                        A gentle 7-day email journey where you learn:
-                    </p>
-
-                    <ul class="ee-hero-list">
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z" /></svg></div>
-                            Nature vocabulary
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg></div>
-                            Practical English you can use daily
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div>
-                            Simple eco concepts
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-                            Printable Environmental English Certificate
-                        </li>
-                    </ul>
-
-                    <a href="#start" class="ee-btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        Start Free 7-Day Course
-                    </a>
-                    <p class="ee-hero-note">Only 3 minutes a day. No spam.</p>
+                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#14b8a6"><path d="M3 20H21L15 8L10 16L7 11L3 20Z" /></svg></div>
+                    <h3>Earth, Land & Ecosystems</h3>
+                    <p>Discover vocabulary for forests, deserts, mountains, soil, and habitats - and describe how everything on Earth is connected.</p>
                 </div>
-
-                <div class="ee-hero-image-col">
-                    <img src="./9e1b58d2-2f7a-48f1-93b0-5a26f71008a5.png" alt="Student holding certificate" class="ee-hero-img">
+                <div class="ee-card card-6">
+                    <span class="ee-day-label">Day 6</span>
+                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#22c55e"><path d="M3 10L12 2L21 10V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V10Z" /><rect x="9" y="14" width="6" height="8" fill="#166534"/></svg></div>
+                    <h3>Home & Sustainable Living</h3>
+                    <p>Talk about recycling, plastic, cleaning products, and tiny daily choices that make your home kinder to the planet.</p>
+                </div>
+                <div class="ee-card card-7">
+                    <span class="ee-day-label">Day 7</span>
+                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#8b5cf6"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" /></svg></div>
+                    <h3>Review, Quiz & Certificate 🎓</h3>
+                    <p>Review all key words, take a short, friendly quiz, and unlock your Environmental English Certificate.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <section class="ee-section">
         <div class="ee-container">
-            <h2 class="ee-section-title">What You'll Learn in 7 Days</h2>
-            
-            <div class="ee-badges-container">
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-                    Certificate included
-                </div>
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
-                    Only 3 minutes a day
-                </div>
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.081 1.535a1.57 1.57 0 0 0-2.332.009L.357 9.14a1.57 1.57 0 0 0 .61 2.69l13.877 1.957a1.57 1.57 0 0 0 1.69-2.243l-6.453-10.009z"/></svg>
-                    Beginner-friendly (A2-B1)
-                </div>
-            </div>
-
-            <div class="ee-grid-cards">
-                <div class="ee-card card-1">
-                    <span class="ee-day-label">Day 1</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#4ade80"><path d="M21 3C21 3 19 12 13 18C13 18 5 22 2 22C2 22 4.5 16.5 4.5 12C4.5 7.5 9 3 21 3Z" /><path d="M13 18C13 18 14.5 12 21 3" stroke="#166534" stroke-width="0.5"/></svg></div>
-                    <h3>Nature Words in Daily Life</h3>
-                    <p>Learn easy, beautiful phrases about trees, plants, rain-sun, and seasons - the English of the world outside your window.</p>
-                </div>
-                <div class="ee-card card-2">
-                    <span class="ee-day-label">Day 2</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#3b82f6"><path d="M2 18C4.5 18 5.5 16 7.5 16C9.5 16 10.5 18 12.5 18C14.5 18 15.5 16 17.5 16C19.5 16 20.5 18 22.5 18V20C20.5 20 19.5 18 17.5 18C15.5 18 14.5 20 12.5 20C10.5 20 9.5 18 7.5 18C5.5 18 4.5 20 2.5 20V18H2Z"/><path d="M16.5 13C14.5 13 13 11 11.5 8C10 5 8 2 5 2C3 2 1.5 3.5 1.5 3.5" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <h3>Oceans, Water & Climate Language</h3>
-                    <p>Talk about oceans, rivers, sea life, and pollution - and how we can protect our blue planet in simple English.</p>
-                </div>
-                <div class="ee-card card-3">
-                    <span class="ee-day-label">Day 3</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#f59e0b"><circle cx="12" cy="12" r="9" /></svg></div>
-                    <h3>Energy, Pollution & Solutions</h3>
-                    <p>Understand words like "renewable", "waste" and "carbon footprint" – and practice real phrases for everyday eco-solutions.</p>
-                </div>
-                <div class="ee-card card-4">
-                    <span class="ee-day-label">Day 4</span>
-                        padding: 24px 24px 64px;
-        }
-
-        /* --- HEADER --- */
-        .ee-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .ee-logo {
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            font-size: 1.2rem;
-            color: #0f2815;
-        }
-
-        .ee-nav-btn {
-            border: none;
-            background: transparent;
-            color: var(--ee-text);
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-
-        /* --- HERO SECTION --- */
-        .ee-hero {
-            background-color: #fff;
-            padding: 2rem 0 5rem 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .ee-container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        /* Left Column */
-        .ee-hero-text {
-            flex: 1;
-            max-width: 500px;
-        }
-
-        .ee-hero-title {
-            font-size: 2.8rem;
-            line-height: 1.2;
-            font-weight: 400;
-            margin: 0 0 1.5rem 0;
-            color: #0f2815;
-        }
-
-        .ee-hero-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #333;
-            font-weight: 300;
-        }
-
-        /* Hero List */
-        .ee-hero-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 2.5rem 0;
-        }
-
-        .ee-hero-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            font-size: 1.05rem;
-            color: #2c2c2c;
-        }
-
-        .ee-icon {
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
-
-        /* Hero Note */
-        .ee-hero-note {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 300;
-        }
-
-        /* Right Column - Image */
-        .ee-hero-image-wrapper {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .ee-hero-img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 24px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        /* --- BUTTONS --- */
-        .ee-primary-btn {
-            background-color: var(--ee-primary);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(34, 168, 86, 0.2);
-            font-family: inherit;
-        }
-
-        .ee-primary-btn:hover {
-            background-color: var(--ee-primary-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(34, 168, 86, 0.3);
-        }
-
-        .ee-secondary-btn {
-            border-radius: 999px;
-            padding: 14px 28px;
-            font-weight: 600;
-            font-size: 0.98rem;
-            border: none;
-            cursor: pointer;
-            background: #e0f5ea;
-            color: var(--ee-primary-dark);
-            font-family: inherit;
-            transition: background 0.2s ease;
-        }
-
-        .ee-secondary-btn:hover {
-            background: #ccefdf;
-        }
-
-        /* --- SECTIONS GENERAL --- */
-        .ee-section {
-            margin-bottom: 56px;
-        }
-
-        .ee-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            font-weight: 600;
-            color: #0f2815;
-        }
-
-        /* --- GRID & CARDS --- */
-        .ee-grid {
-            display: grid;
-            gap: 16px;
-        }
-
-        .ee-grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        .ee-grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
-
-        .ee-card {
-            background: var(--ee-card-bg);
-            border-radius: var(--ee-radius);
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            border: 1px solid #f0f0f0;
-        }
-
-        .ee-card h3 {
-            margin-top: 0;
-            font-size: 1rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .ee-card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--ee-muted);
-            line-height: 1.5;
-        }
-
-        .ee-card-full {
-            grid-column: 1 / -1;
-        }
-
-        /* --- CERTIFICATE SECTION --- */
-        .ee-split {
-            display: grid;
-            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-            gap: 32px;
-            align-items: center;
-        }
-
-        .ee-section-highlight {
-            background: linear-gradient(135deg, #ebfdf4 0%, #f7faf7 100%);
-            padding: 40px;
-            border-radius: 28px;
-        }
-
-        .ee-cert-placeholder {
-            display: flex;
-            justify-content: center;
-        }
-
-        .ee-cert-mock {
-            width: 260px;
-            aspect-ratio: 4 / 5;
-            border-radius: 18px;
-            background: #ffffff;
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-            padding: 24px 20px;
-            text-align: center;
-            border: 4px solid #1a2e1a;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .ee-cert-title {
-            font-weight: 700;
-            margin-bottom: 4px;
-            font-family: serif;
-            font-size: 1.2rem;
-            margin-top: 0;
-        }
-
-        .ee-cert-subtitle {
-            font-size: 0.8rem;
-            color: var(--ee-muted);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .ee-cert-body {
-            font-size: 0.9rem;
-            font-family: serif;
-            font-style: italic;
-            margin-bottom: 0;
-        }
-
-        /* --- LISTS & STEPS --- */
-        .ee-bullet-list {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0;
-        }
-
-        .ee-bullet-list li {
-            margin-bottom: 8px;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .ee-steps {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 32px;
-        }
-
-        .ee-steps li {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .ee-steps span {
-            font-size: 1.5rem;
-        }
-
-        .ee-steps strong {
-            display: block;
-            margin-bottom: 4px;
-            color: #0f2815;
-        }
-
-        .ee-steps p {
-            margin: 0;
-            color: var(--ee-muted);
-        }
-
-        .ee-center {
-            display: flex;
-            margin: 24px auto 0;
-            justify-content: center;
-        }
-
-        /* --- TAGS & QUOTES --- */
-        .ee-tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 16px;
-        }
-
-        .ee-tag-list span {
-            font-size: 0.9rem;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: #e5f7ee;
-            color: var(--ee-primary-dark);
-            font-weight: 500;
-        }
-
-        .ee-quote {
-            background: #ffffff;
-            border-radius: var(--ee-radius);
-            padding: 24px;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-            font-size: 1rem;
-            font-style: italic;
-            color: #444;
-        }
-
-        .ee-quote span {
-            display: block;
-            margin-top: 12px;
-            color: var(--ee-muted);
-            font-size: 0.9rem;
-            font-style: normal;
-            font-weight: 600;
-        }
-
-        .ee-note {
-            margin-top: 16px;
-            font-size: 1rem;
-            color: var(--ee-muted);
-            font-style: italic;
-        }
-
-        /* --- FINAL CTA & FOOTER --- */
-        .ee-final-cta {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .ee-final-cta h2 {
-            margin-bottom: 16px;
-        }
-
-        .ee-final-cta p {
-            margin-bottom: 24px;
-            font-size: 1.1rem;
-        }
-
-        .ee-footer {
-            margin-top: 40px;
-            padding-top: 24px;
-            border-top: 1px solid #eee;
-            font-size: 0.85rem;
-            color: var(--ee-muted);
-            text-align: center;
-        }
-
-        /* --- RESPONSIVE (MOBILE) --- */
-        @media (max-width: 768px) {
-            .ee-container {
-                flex-direction: column-reverse;
-                gap: 2rem;
-                text-align: left;
-            }
-
-            .ee-hero-title {
-                font-size: 2.2rem;
-            }
-
-            .ee-hero-image-wrapper {
-                justify-content: center;
-            }
-
-            .ee-split {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .ee-bullet-list {
-                text-align: left;
-            }
-
-            .ee-header {
-                margin-bottom: 24px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="ee-page">
-        <header class="ee-header">
-            <div class="ee-logo">Enligten Academy</div>
-            <button class="ee-nav-btn">
-                Start Free 7-Day Course
-            </button>
-        </header>
-
-        <section class="ee-hero">
-            <div class="ee-container">
-                <div class="ee-hero-text">
-                    <h1 class="ee-hero-title">
-                        Earn Your Certificate<br>
-                        in Environmental<br>
-                        English — in 7 Days
-                    </h1>
+            <div class="ee-split-section">
+                <div style="flex:1">
+                    <h2 class="ee-section-title" style="text-align:left;">Your Certificate</h2>
+                    <p style="color:var(--text-light); font-size:1.1rem;">When you finish the 7-day journey, you unlock your official credentials.</p>
                     
-                    <p class="ee-hero-subtitle">
-                        A gentle 7-day email journey where you learn:
-                    </p>
-
-                    <ul class="ee-hero-list">
+                    <ul class="ee-cert-list">
                         <li>
-                            <span class="ee-icon">🌱</span> 
-                            <span>nature vocabulary</span>
+                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            <strong>Environmental English – Level 1 Certificate</strong>
                         </li>
                         <li>
-                            <span class="ee-icon">🗣️</span> 
-                            <span>practical English you can use daily</span>
+                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            Personalized with your name & completion date
                         </li>
                         <li>
-                            <span class="ee-icon">💡</span> 
-                            <span>simple eco concepts</span>
-                        </li>
-                        <li>
-                            <span class="ee-icon">🎓</span> 
-                            <span>printable Environmental English Certificate</span>
+                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            PDF format for LinkedIn, portfolios, and CVs
                         </li>
                     </ul>
-
-                    <button class="ee-primary-btn">
-                        <span style="margin-right: 8px;">→</span> Start Free 7-Day Course
-                    </button>
-
-                    <p class="ee-hero-note">
-                        Only 3 minutes a day. No spam.
-                    </p>
+                    <button class="ee-btn-secondary">Upgrade for Certificate — $7</button>
                 </div>
-
-                <div class="ee-hero-image-wrapper">
-                    <img
-                        src="./9e1b58d2-2f7a-48f1-93b0-5a26f71008a5.png" 
-                        alt="Happy student holding Environmental English certificate in nature"
-                        class="ee-hero-img"
-                    >
-                </div>
-            </div>
-        </section>
-
-        <section class="ee-section">
-            <h2>📚 What You'll Learn in 7 Days</h2>
-            <div class="ee-grid">
-                <div class="ee-card">
-                    <h3>🌿 Day 1 – Nature Words in Daily Life</h3>
-                    <p>Simple English phrases about trees, plants, weather, and seasons.</p>
-                </div>
-                <div class="ee-card">
-                    <h3>🌊 Day 2 – Oceans, Water & Climate Language</h3>
-                    <p>Useful vocabulary for speaking about water, sea life, and protection.</p>
-                </div>
-                <div class="ee-card">
-                    <h3>🔥 Day 3 – Energy, Pollution & Solutions</h3>
-                    <p>Understand “renewable”, “waste”, “carbon footprint”, and more.</p>
-                </div>
-                <div class="ee-card">
-                    <h3>🌍 Day 4 – Earth, Land & Ecosystems</h3>
-                    <p>Learn the English words for forests, deserts, mountains, and habitats.</p>
-                </div>
-                <div class="ee-card">
-                    <h3>🐦 Day 5 – Animals & Birds (your favorite!)</h3>
-                    <p>Nature behavior, bird vocabulary, and speaking prompts.</p>
-                </div>
-                <div class="ee-card">
-                    <h3>🏡 Day 6 – Home & Sustainable Living</h3>
-                    <p>Speak about recycling, habits, and eco-friendly choices.</p>
-                </div>
-                <div class="ee-card ee-card-full">
-                    <h3>🧠 Day 7 – Review + Final Quiz</h3>
-                    <p>Complete a short quiz to unlock your certificate.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="ee-section ee-section-highlight">
-            <div class="ee-split">
-                <div>
-                    <h2>🎓 Your Certificate</h2>
-                    <p>
-                        When you finish the 7-day journey, you can unlock your:
-                    </p>
-                    <ul class="ee-bullet-list">
-                        <li>✨ <strong>Environmental English – Level 1 Certificate</strong></li>
-                        <li>Personalized with your name & completion date</li>
-                        <li>PDF format for school, university, job applications, language portfolio, and eco projects</li>
-                    </ul>
-                    <button class="ee-secondary-btn" style="margin-top: 20px;">
-                        👉 Upgrade for Certificate — $7
-                    </button>
-                </div>
-                <div class="ee-cert-placeholder">
-                    <div class="ee-cert-mock">
-                        <p class="ee-cert-title">Environmental English</p>
-                        <p class="ee-cert-subtitle">Level 1 Certificate</p>
-                        <p class="ee-cert-body">Awarded to [Your Name]</p>
+                <div style="flex:1; display:flex; justify-content:center;">
+                    <div class="ee-cert-mockup">
+                        <div class="ee-cert-logo-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <div class="cert-title">Environmental<br>English</div>
+                        <div class="cert-subtitle">Level 1 Certificate</div>
+                        <div class="cert-name">Awarded to [Your Name]</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="ee-section">
-            <h2>🌿 Why Learn Environmental English?</h2>
-            <div class="ee-grid ee-grid-2">
-                <ul class="ee-bullet-list">
-                    <li>• speak confidently about global topics</li>
-                    <li>• prepare for school & university presentations</li>
-                    <li>• improve your English in a meaningful way</li>
-                </ul>
-                <ul class="ee-bullet-list">
-                    <li>• understand eco topics in real life</li>
-                    <li>• join international conversations</li>
-                    <li>• feel connected to nature through language</li>
-                </ul>
-            </div>
-            <p class="ee-note">
-                And it’s softer, calmer, and more beautiful than textbook English.
-            </p>
-        </section>
-
-        <section class="ee-section">
-            <h2>✉️ How It Works</h2>
-            <ol class="ee-steps">
-                <li>
-                    <span>1️⃣</span>
+    <section class="ee-section ee-bg-soft">
+        <div class="ee-container">
+            <h2 class="ee-section-title">How It Works</h2>
+            <p class="ee-section-subtitle">A simple path to better English and nature connection.</p>
+            
+            <div class="ee-step-list">
+                <div class="ee-step-item">
+                    <div class="ee-step-num">1</div>
                     <div>
-                        <strong>Join the free 7-day email course</strong>
-                        <p>You receive your first lesson immediately.</p>
+                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Join the free 7-day email course</h4>
+                        <p style="color:var(--text-light)">You receive your first lesson immediately.</p>
                     </div>
-                </li>
-                <li>
-                    <span>2️⃣</span>
-                    <div>
-                        <strong>Read one short lesson each day</strong>
-                        <p>Simple English + nature knowledge + examples.</p>
-                    </div>
-                </li>
-                <li>
-                    <span>3️⃣</span>
-                    <div>
-                        <strong>Complete the final quiz</strong>
-                        <p>A gentle review of everything you learned.</p>
-                    </div>
-                </li>
-                <li>
-                    <span>4️⃣</span>
-                    <div>
-                        <strong>Unlock your certificate</strong>
-                        <p>Get the Environmental English Certificate for only $7.</p>
-                    </div>
-                </li>
-            </ol>
-            <button class="ee-primary-btn ee-center">
-                👉 Start Free 7-Day Course →
-            </button>
-        </section>
-
-        <section class="ee-section">
-            <h2>💚 Who This Is For</h2>
-            <div class="ee-tag-list">
-                <span>English learners</span>
-                <span>students & teachers</span>
-                <span>immigrants</span>
-                <span>eco lovers</span>
-                <span>nature-connected people</span>
-                <span>wellness seekers</span>
-                <span>parents</span>
-                <span>anyone who loves learning in a calm way</span>
-            </div>
-            <p class="ee-note">
-                This course is warm, simple, emotional, and easy for all levels.
-            </p>
-        </section>
-
-        <section class="ee-section">
-            <h2>💬 Student Feedback</h2>
-            <div class="ee-grid ee-grid-3">
-                <div class="ee-quote">
-                    <p>
-                        “This is the first English course that felt like meditation. I
-                        learned, but I also felt calm.”
-                    </p>
-                    <span>– Nina</span>
                 </div>
-                <div class="ee-quote">
-                    <p>
-                        “The certificate helped me in my school portfolio. Thank you!”
-                    </p>
-                    <span>– Arjun</span>
+                <div class="ee-step-item">
+                    <div class="ee-step-num">2</div>
+                    <div>
+                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Read one short lesson each day</h4>
+                        <p style="color:var(--text-light)">Simple English + nature knowledge + examples.</p>
+                    </div>
                 </div>
-                <div class="ee-quote">
-                    <p>
-                        “I love nature vocabulary. I never learned this in textbooks.”
-                    </p>
-                    <span>– Sara</span>
+                <div class="ee-step-item">
+                    <div class="ee-step-num">3</div>
+                    <div>
+                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Complete the final quiz</h4>
+                        <p style="color:var(--text-light)">A gentle review of everything you learned.</p>
+                    </div>
+                </div>
+                <div class="ee-step-item">
+                    <div class="ee-step-num">4</div>
+                    <div>
+                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Unlock your certificate</h4>
+                        <p style="color:var(--text-light)">Get the Environmental English Certificate for only $7.</p>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div style="text-align:center; margin-top:40px;">
+                <a href="#start" class="ee-btn-primary">Start Free 7-Day Course</a>
+            </div>
+        </div>
+    </section>
 
-        <section class="ee-section ee-final-cta">
-            <h2>🌱 Ready to Grow Your English — and Your Connection to Nature?</h2>
-            <p>
-                Join the 7-day journey and earn your 
-                <strong>Environmental English Certificate — Level 1</strong>.
-            </p>
-            <button class="ee-primary-btn">
-                👉 Start Free 7-Day Course →
-            </button>
-            <p class="ee-hero-note">
-                Only 3 minutes a day. No stress, no spam.
-            </p>
-        </section>
+    <section class="ee-section">
+        <div class="ee-container">
+            <h2 class="ee-section-title">Who This Is For</h2>
+            <div class="ee-tags-cloud">
+                <span class="ee-pill">English learners</span>
+                <span class="ee-pill">Students & teachers</span>
+                <span class="ee-pill">Immigrants</span>
+                <span class="ee-pill">Eco lovers</span>
+                <span class="ee-pill">Nature-connected people</span>
+                <span class="ee-pill">Wellness seekers</span>
+                <span class="ee-pill">Parents</span>
+                <span class="ee-pill">Peaceful learners</span>
+            </div>
+        </div>
+    </section>
 
-        <footer class="ee-footer">
-            © 2025 Enligten Academy
-        </footer>
-    </div>
+    <section class="ee-section ee-bg-green">
+        <div class="ee-container">
+            <h2 class="ee-section-title">Student Feedback</h2>
+            <div class="ee-review-grid">
+                <div class="ee-review-card">
+                    <p class="ee-review-text">“This is the first English course that felt like meditation. I learned, but I also felt calm.”</p>
+                    <div class="ee-review-author">– Nina</div>
+                </div>
+                <div class="ee-review-card">
+                    <p class="ee-review-text">“The certificate helped me in my school portfolio. Thank you!”</p>
+                    <div class="ee-review-author">– Arjun</div>
+                </div>
+                <div class="ee-review-card">
+                    <p class="ee-review-text">“I love nature vocabulary. I never learned this in textbooks.”</p>
+                    <div class="ee-review-author">– Sara</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ee-section" id="start" style="text-align:center; padding: 100px 0;">
+        <div class="ee-container">
+            <h2 class="ee-section-title">Ready to Grow Your English?</h2>
+            <p style="font-size:1.2rem; color:var(--text-body); margin-bottom:32px;">
+                Join the 7-day journey and earn your <strong>Environmental English Certificate</strong>.
+            </p>
+            <a href="#" class="ee-btn-primary">
+                Start Free 7-Day Course →
+            </a>
+            <p class="ee-hero-note">Only 3 minutes a day. No stress, no spam.</p>
+        </div>
+    </section>
+
+    <footer class="ee-footer">
+        <div class="ee-container">
+            © 2025 Enlighten Academy. All rights reserved.
+        </div>
+    </footer>
 
 </body>
-
 </html>
-
