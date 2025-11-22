@@ -3,684 +3,549 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enlighten Academy - Environmental English</title>
-    
+    <title>Enlighten Academy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    
     <style>
-        /* --- 1. VARIABLES & THEME --- */
+        /* ================= GLOBAL VARIABLES & RESET ================= */
         :root {
-            /* Colors */
-            --bg-color: #ffffff;
-            --bg-soft: #f8fafc;
-            --bg-green-soft: #f0fdf4;
+            --primary-green: #16a34a;
+            --dark-green: #062c18;
+            --bg-yellow: #ffe15a; /* Yellow used for certificate/highlight */
+            --bg-green-light: #f0fdf4; /* Very light green for cards */
             
-            --text-main: #062c18;    /* Deep Forest Green (Headings) */
-            --text-body: #334155;    /* Slate Grey (Readable Body) */
-            --text-light: #64748b;
-            
-            --primary: #16a34a;      /* Vibrant Green (CTA) */
-            --primary-hover: #15803d;
-            
-            /* Card Gradients */
             --grad-day1: linear-gradient(180deg, #ecfccb 0%, #dcfce7 100%);
             --grad-day2: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 100%);
             --grad-day3: linear-gradient(180deg, #fef3c7 0%, #ffedd5 100%);
             --grad-day4: linear-gradient(180deg, #ccfbf1 0%, #99f6e4 100%);
             --grad-day6: linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
             --grad-day7: linear-gradient(180deg, #e9d5ff 0%, #d8b4fe 100%);
-
-            /* Spacing & Radius */
+            
+            --container-w: 1200px;
+            --radius-pill: 50px;
             --radius-card: 24px;
-            --radius-btn: 50px;
-            --container-width: 1180px;
         }
 
-        /* --- 2. GLOBAL RESET --- */
-        * { box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: var(--bg-color);
-            color: var(--text-body);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            color: #333;
+            line-height: 1.5;
+            background-color: #fff;
         }
 
-        h1, h2, h3, h4, p, ul, li { margin: 0; padding: 0; }
         ul { list-style: none; }
         a { text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
-        .ee-container {
-            max-width: var(--container-width);
+        .container {
+            max-width: var(--container-w);
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* --- 3. BUTTONS & COMMON ELEMENTS --- */
-        .ee-btn-primary {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 18px 36px;
-            font-size: 1.05rem;
+        .section { padding: 100px 0; }
+
+        /* Typography */
+        h1, h2, h3 { color: var(--dark-green); line-height: 1.2; }
+        
+        .section-title {
+            font-size: 3rem;
             font-weight: 700;
-            border-radius: var(--radius-btn);
-            cursor: pointer;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-sub {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Buttons */
+        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .ee-btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        .ee-btn-secondary {
-            background-color: white;
-            color: var(--text-main);
-            border: 2px solid #e2e8f0;
-            padding: 14px 28px;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: var(--radius-btn);
-            cursor: pointer;
-            transition: all 0.2s;
-            display: inline-block;
-        }
-
-        .ee-btn-secondary:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .ee-section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-align: center;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .ee-section-subtitle {
-            text-align: center;
+            justify-content: center;
+            padding: 18px 36px;
             font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 48px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ee-section { padding: 80px 0; }
-        .ee-bg-soft { background-color: var(--bg-soft); }
-        .ee-bg-green { background-color: var(--bg-green-soft); }
-
-        /* --- 4. HEADER --- */
-        .ee-header {
-            padding: 24px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .ee-logo {
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: var(--text-main);
-            letter-spacing: -0.02em;
-        }
-
-        .ee-nav-link {
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 16px;
-            transition: color 0.2s;
-        }
-        .ee-nav-link:hover { color: var(--primary); }
-
-        /* --- 5. HERO SECTION --- */
-        .ee-hero-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            padding-bottom: 60px;
-        }
-
-        .ee-hero-text { flex: 1.1; }
-
-        .ee-hero-title {
-            font-size: 3.2rem;
-            line-height: 1.15;
             font-weight: 700;
-            color: var(--text-main);
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-green {
+            background-color: var(--primary-green);
+            color: white;
+            box-shadow: 0 4px 8px rgba(22, 163, 74, 0.2);
+        }
+        
+        /* ================= 1. HEADER ================= */
+        .header { padding: 24px 0; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--dark-green); }
+        .login-link { font-weight: 600; color: var(--dark-green); }
+
+
+        /* ================= 2. HERO SECTION ================= */
+        .hero-section {
+            padding: 60px 0 100px 0;
+            display: flex; 
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 60px;
+            width: 100%;
+        }
+
+        .hero-left { 
+            width: 100%;
+            padding-right: 10px; 
+        }
+        
+        .hero-brand { font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; display: block; }
+        
+        .hero-h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
             margin-bottom: 24px;
-            letter-spacing: -0.03em;
+            color: var(--dark-green);
+            letter-spacing: -1px;
+            line-height: 1.15;
         }
 
-        .ee-hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-body);
-            margin-bottom: 32px;
-        }
+        .hero-intro { font-size: 1.2rem; color: #444; margin-bottom: 32px; }
 
-        /* Hero Icons */
-        .ee-hero-list li {
+        .hero-list li {
             display: flex;
             align-items: center;
+            font-size: 1.1rem;
             margin-bottom: 16px;
-            font-size: 1.05rem;
+            color: #333;
             font-weight: 500;
-            color: #1e293b;
         }
 
-        .ee-icon-box {
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .icon { width: 24px; height: 24px; margin-right: 16px; }
+        .fill-green { fill: #4ade80; }
+        .fill-purple { fill: #6366f1; }
+        .fill-yellow { fill: #facc15; }
+        .fill-grey { fill: #4b5563; }
 
-        .ee-hero-image-col {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            padding-top: 24px;
-        }
-
-        .ee-hero-img {
+        .hero-img-wrapper {
             width: 100%;
-            max-width: 500px;
-            border-radius: 24px;
+            overflow: hidden; 
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+        }
+        
+        /* Note: Image source is placeholder for demonstration */
+        .hero-img {
+            width: 100%;
+            height: 100%; 
             object-fit: cover;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
         }
 
-        .ee-hero-note { font-size: 0.85rem; color: var(--text-light); margin-top: 16px; }
 
-        /* --- 6. WHAT YOU'LL LEARN (GRADIENT CARDS) --- */
-        .ee-badges-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 48px;
+        /* ================= 3. WHAT YOU'LL LEARN ================= */
+        .learn-section { background-color: #f9f9f9; }
+
+        .badges-row { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; }
+        .badge {
+            background: #dcfce7; color: #14532d; padding: 8px 24px;
+            border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px;
         }
 
-        .ee-badge {
-            background: #dcfce7;
-            color: #14532d;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .ee-grid-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .ee-card {
-            border-radius: 24px;
-            padding: 40px 32px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-        .ee-card:hover { transform: translateY(-5px); }
-
-        .ee-day-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(0,0,0,0.5);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .ee-card-icon {
-            height: 80px;
-            width: 80px;
-            margin: 0 auto 24px;
-        }
-        
-        .ee-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
-            line-height: 1.2;
-        }
-
-        .ee-card p { font-size: 1rem; color: #4b5563; }
-
-        /* Gradient Classes */
-        .card-1 { background: var(--grad-day1); }
-        .card-2 { background: var(--grad-day2); }
-        .card-3 { background: var(--grad-day3); }
-        .card-4 { background: var(--grad-day4); }
-        .card-6 { background: var(--grad-day6); }
-        .card-7 { background: var(--grad-day7); }
-
-        /* --- 7. CERTIFICATE SECTION --- */
-        .ee-split-section {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .ee-cert-list { margin: 24px 0 32px; }
-        .ee-cert-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-        }
-
-        /* Mockup of Certificate */
-        .ee-cert-mockup {
-            background: white;
-            width: 100%;
-            max-width: 450px;
-            aspect-ratio: 4/5;
-            border-radius: 20px;
-            border: 10px solid #1e293b; /* Dark Frame */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .ee-cert-mockup::before {
-            content: '';
-            position: absolute;
-            top: 20px; bottom: 20px; left: 20px; right: 20px;
-            border: 2px solid #e2e8f0;
-            pointer-events: none;
-        }
-
-        .ee-cert-logo-icon {
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-        
-        .cert-title { font-family: serif; font-size: 2rem; font-weight: 700; color: var(--text-main); line-height: 1; margin-bottom: 8px;}
-        .cert-subtitle { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 24px; }
-        .cert-name { font-family: serif; font-style: italic; font-size: 1.2rem; margin-top: 20px; border-bottom: 1px solid #ddd; padding-bottom: 4px;}
-
-        /* --- 8. WHY & HOW SECTIONS --- */
-        .ee-features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-        }
-
-        .ee-feature-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .ee-step-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ee-step-item {
-            background: white;
-            padding: 24px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            border: 1px solid #f1f5f9;
-        }
-
-        .ee-step-num {
-            background: var(--bg-green-soft);
-            color: var(--primary);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        /* --- 9. WHO & TESTIMONIALS --- */
-        .ee-tags-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ee-pill {
-            background: var(--bg-green-soft);
-            color: var(--text-main);
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-        }
-
-        .ee-review-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
 
-        .ee-review-card {
-            background: var(--bg-soft);
-            padding: 32px;
+        .card {
+            border-radius: 24px;
+            padding: 40px 32px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        .card-day { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; opacity: 0.5; display: block; margin-bottom: 20px; }
+        .card-icon { height: 80px; width: auto; margin-bottom: 24px; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        
+        /* Gradients */
+        .g-day1 { background: var(--grad-day1); }
+        .g-day2 { background: var(--grad-day2); }
+        .g-day3 { background: var(--grad-day3); }
+        .g-day4 { background: var(--grad-day4); }
+        .g-day6 { background: var(--grad-day6); }
+        .g-day7 { background: var(--grad-day7); }
+
+
+        /* ================= 4. HOW IT WORKS ================= */
+        .hiw-section {
+            background-color: #eefdf4; /* Light green tint */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 50 C 20 50 20 20 50 20 C 80 20 80 50 50 50" fill="none" stroke="%23dcfce7" stroke-width="2"/></svg>');
+        }
+
+        .steps-stack {
+            max-width: 750px;
+            margin: 0 auto 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-item {
+            background: white;
+            border-radius: 20px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .step-icon { width: 50px; height: 50px; object-fit: contain; flex-shrink: 0; }
+        
+        .step-info h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .step-info p { color: #666; font-size: 0.95rem; }
+
+        .trust-badge { text-align: center; color: #15803d; font-weight: 600; margin-bottom: 24px; }
+
+
+        /* ================= 5. CERTIFICATE ================= */
+        .cert-section {
+            background-color: var(--bg-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Confetti effect */
+        .cert-section::before {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background-image: radial-gradient(#4ade80 20%, transparent 20%), radial-gradient(#f472b6 20%, transparent 20%);
+            background-size: 50px 50px; opacity: 0.1; pointer-events: none;
+        }
+
+        .cert-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            position: relative; z-index: 1;
+        }
+
+        .cert-h2 { font-size: 3.5rem; font-family: serif; font-weight: 800; color: var(--dark-green); line-height: 1; }
+        .cert-sub { color: #e65100; font-weight: 600; font-size: 1.2rem; display: block; margin: 10px 0 30px 0; }
+        
+        .cert-list li { display: flex; margin-bottom: 16px; font-weight: 600; color: var(--dark-green); font-size: 1.1rem; }
+        .check { width: 24px; margin-right: 10px; color: #16a34a; }
+
+        .cert-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 4px solid #fde047; 
+            outline: 8px solid white;
+            text-align: center;
+            max-width: 400px; margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+
+        /* ================= 6. WHO THIS IS FOR ================= */
+        .who-section { 
+            background-color: #fff; 
+            text-align: center; 
+        }
+
+        .who-grid {
+            display: grid;
+            /* Creates a responsive grid of at least 280px width per column */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 60px auto 0 auto;
+        }
+
+        .who-card {
+            padding: 40px 30px; 
+            background-color: var(--bg-green-light); /* f0fdf4 */
+            border-radius: var(--radius-card);
+            text-align: center;
+            border: 1px solid #dcfce7;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            /* NEW: Ensure consistent card height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .who-icon {
+            /* Styles to match the provided image */
+            width: 80px; 
+            height: 80px;
+            padding: 10px;
+            background-color: white; /* White circle background for icon */
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            object-fit: contain;
+            /* NEW: Subtle shadow on the icon circle */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        .who-card h3 {
+            font-size: 1.6rem; 
+            margin-bottom: 10px;
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+        .who-card p {
+            color: #444;
+            font-size: 1rem;
+            flex-grow: 1; /* Allows paragraphs to take equal vertical space */
+        }
+        
+
+
+        /* ================= 7. FEEDBACK ================= */
+        .feedback-section {
+            background: linear-gradient(to bottom, #ffffff 0%, #f0fdf4 100%);
+        }
+
+        .fb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .fb-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0 24px 32px 24px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 50px; /* Space for pop-up image */
+        }
+
+        .fb-img {
+            width: 100px; height: 100px;
             border-radius: 16px;
-            text-align: center;
-        }
-        .ee-review-text { font-style: italic; font-size: 1.1rem; margin-bottom: 16px; color: #333; }
-        .ee-review-author { font-weight: 700; font-size: 0.9rem; color: var(--text-light); }
-
-        /* --- 10. FOOTER --- */
-        .ee-footer {
-            border-top: 1px solid #e2e8f0;
-            padding: 40px 0;
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 40px;
+            object-fit: cover;
+            margin: -50px auto 20px auto;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .ee-hero-wrapper, .ee-split-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
+        .fb-quote { font-style: italic; font-size: 1.1rem; color: #333; margin-bottom: 16px; }
+        .fb-name { font-weight: 800; color: var(--dark-green); }
+
+
+        /* ================= 8. PRICE SECTION ================= */
+        .price-section {
+            background-color: #f7fee7; /* Very light, soft green */
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 450px;
+            margin: 50px auto 0 auto;
+            background-color: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .price-tag {
+            background-color: var(--bg-yellow);
+            color: var(--dark-green);
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .price-value {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .price-features {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .price-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-weight: 500;
+            color: #444;
+        }
+        .price-check {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            color: var(--primary-green);
+        }
+        
+        
+        /* ================= 9. READY TO GROW CTA (NEW SECTION 9) ================= */
+        /* Updated from Section 10's styles, removed old sections 9 and 11 */
+        .cta-section { 
+            background-color: #e6ffed; /* Soft mint green for a strong CTA */
+            padding: 100px 0; 
+        }
+        
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+        }
+
+        .cta-h2 { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            color: var(--dark-green); 
+            margin-bottom: 20px; 
+        }
+        
+        .cta-list { 
+            text-align: left; 
+            margin-bottom: 40px; 
+            padding-left: 0;
+            list-style: none;
+            width: 100%; 
+            max-width: 350px; 
+        }
+
+        .cta-list li { 
+            display: flex; 
+            align-items: center; /* Ensures text and icon are vertically centered */
+            margin-bottom: 16px; 
+            font-size: 1.2rem; 
+            color: #333; 
+            font-weight: 500;
+        }
+
+        .cta-icon { 
+            width: 32px; 
+            height: 32px; 
+            margin-right: 16px; 
+            flex-shrink: 0; 
+        }
+        
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 960px) {
+            .hero-grid, .cert-layout { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-left { padding-right: 0; }
+            .hero-img-wrapper { 
+                height: auto;
+                max-width: 400px;
+                margin: 0 auto;
+                box-shadow: none;
             }
-            .ee-hero-wrapper { flex-direction: column-reverse; } /* Image top on mobile */
-            .ee-hero-list li, .ee-cert-list li { justify-content: center; text-align: left; }
-            .ee-hero-image-col { justify-content: center; padding-top: 0; }
-            .ee-hero-title { font-size: 2.5rem; }
-            .ee-step-item { flex-direction: column; text-align: center; }
+            .hero-img {
+                height: auto;
+                aspect-ratio: 4/5;
+            }
+            .hero-list li, .cert-list li { justify-content: center; }
+            .fb-grid, .who-grid { grid-template-columns: 1fr; }
+            .hero-section { padding-top: 20px; }
+            .cta-list { align-items: flex-start; margin-left: auto; margin-right: auto; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ee-container">
-        <header class="ee-header">
-            <div class="ee-logo">Enlighten Academy</div>
-            <a href="#" class="ee-nav-link">Log in</a>
-        </header>
-
-        <section class="ee-hero-section">
-            <div class="ee-hero-wrapper">
-                <div class="ee-hero-text">
-                    <h1 class="ee-hero-title">
-                        Earn Your Certificate<br>
-                        in Environmental<br>
-                        English — in 7 Days
-                    </h1>
-                    <p class="ee-hero-subtitle">
-                        A gentle 7-day email journey where you learn:
-                    </p>
-
-                    <ul class="ee-hero-list">
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.77 10-10 10Z" /></svg></div>
-                            Nature vocabulary
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg></div>
-                            Practical English you can use daily
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div>
-                            Simple eco concepts
-                        </li>
-                        <li>
-                            <div class="ee-icon-box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-                            Printable Environmental English Certificate
-                        </li>
-                    </ul>
-
-                    <a href="#start" class="ee-btn-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        Start Free 7-Day Course
-                    </a>
-                    <p class="ee-hero-note">Only 3 minutes a day. No spam.</p>
-                </div>
-
-                <div class="ee-hero-image-col">
-                    <img src="9e1b58d2-2f7a-48f1-93b0-5a26f71008a5.png" alt="Student holding certificate" class="ee-hero-img">
-                </div>
-            </div>
-        </section>
+    <div class="container header">
+        <nav class="nav">
+            <div class="logo">Enlighten Academy</div>
+            <a href="#" class="login-link">Log in</a>
+        </nav>
     </div>
 
-    <section class="ee-section">
-        <div class="ee-container">
-            <h2 class="ee-section-title">What You'll Learn in 7 Days</h2>
-            
-            <div class="ee-badges-container">
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/></svg>
-                    Certificate included
-                </div>
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
-                    Only 3 minutes a day
-                </div>
-                <div class="ee-badge">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M10.081 1.535a1.57 1.57 0 0 0-2.332.009L.357 9.14a1.57 1.57 0 0 0 .61 2.69l13.877 1.957a1.57 1.57 0 0 0 1.69-2.243l-6.453-10.009z"/></svg>
-                    Beginner-friendly (A2-B1)
-                </div>
-            </div>
-
-            <div class="ee-grid-cards">
-                <div class="ee-card card-1">
-                    <span class="ee-day-label">Day 1</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#4ade80"><path d="M21 3C21 3 19 12 13 18C13 18 5 22 2 22C2 22 4.5 16.5 4.5 12C4.5 7.5 9 3 21 3Z" /><path d="M13 18C13 18 14.5 12 21 3" stroke="#166534" stroke-width="0.5"/></svg></div>
-                    <h3>Nature Words in Daily Life</h3>
-                    <p>Learn easy, beautiful phrases about trees, plants, rain-sun, and seasons - the English of the world outside your window.</p>
-                </div>
-                <div class="ee-card card-2">
-                    <span class="ee-day-label">Day 2</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#3b82f6"><path d="M2 18C4.5 18 5.5 16 7.5 16C9.5 16 10.5 18 12.5 18C14.5 18 15.5 16 17.5 16C19.5 16 20.5 18 22.5 18V20C20.5 20 19.5 18 17.5 18C15.5 18 14.5 20 12.5 20C10.5 20 9.5 18 7.5 18C5.5 18 4.5 20 2.5 20V18H2Z"/><path d="M16.5 13C14.5 13 13 11 11.5 8C10 5 8 2 5 2C3 2 1.5 3.5 1.5 3.5" stroke="#1e3a8a" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-                    <h3>Oceans, Water & Climate Language</h3>
-                    <p>Talk about oceans, rivers, sea life, and pollution - and how we can protect our blue planet in simple English.</p>
-                </div>
-                <div class="ee-card card-3">
-                    <span class="ee-day-label">Day 3</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#f59e0b"><circle cx="12" cy="12" r="9" /></svg></div>
-                    <h3>Energy, Pollution & Solutions</h3>
-                    <p>Understand words like "renewable", "waste" and "carbon footprint" – and practice real phrases for everyday eco-solutions.</p>
-                </div>
-                <div class="ee-card card-4">
-                    <span class="ee-day-label">Day 4</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#14b8a6"><path d="M3 20H21L15 8L10 16L7 11L3 20Z" /></svg></div>
-                    <h3>Earth, Land & Ecosystems</h3>
-                    <p>Discover vocabulary for forests, deserts, mountains, soil, and habitats - and describe how everything on Earth is connected.</p>
-                </div>
-                <div class="ee-card card-6">
-                    <span class="ee-day-label">Day 6</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#22c55e"><path d="M3 10L12 2L21 10V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V10Z" /><rect x="9" y="14" width="6" height="8" fill="#166534"/></svg></div>
-                    <h3>Home & Sustainable Living</h3>
-                    <p>Talk about recycling, plastic, cleaning products, and tiny daily choices that make your home kinder to the planet.</p>
-                </div>
-                <div class="ee-card card-7">
-                    <span class="ee-day-label">Day 7</span>
-                    <div class="ee-card-icon"><svg viewBox="0 0 24 24" fill="#8b5cf6"><path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z" /></svg></div>
-                    <h3>Review, Quiz & Certificate 🎓</h3>
-                    <p>Review all key words, take a short, friendly quiz, and unlock your Environmental English Certificate.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ee-section">
-        <div class="ee-container">
-            <div class="ee-split-section">
-                <div style="flex:1">
-                    <h2 class="ee-section-title" style="text-align:left;">Your Certificate</h2>
-                    <p style="color:var(--text-light); font-size:1.1rem;">When you finish the 7-day journey, you unlock your official credentials.</p>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <span class="hero-brand">Enlighten Academy</span>
+                    <h1 class="hero-h1">Earn Your Certificate<br>in Environmental<br>English — in 7 Days</h1>
+                    <p class="hero-intro">A gentle 7-day email journey where you learn:</p>
                     
-                    <ul class="ee-cert-list">
+                    <ul class="hero-list">
                         <li>
-                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            <strong>Environmental English – Level 1 Certificate</strong>
+                            <svg class="icon fill-green" viewBox="0 0 24 24"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
+                            nature vocabulary
                         </li>
                         <li>
-                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            Personalized with your name & completion date
+                            <svg class="icon fill-purple" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,14.4 18.95,16.56 17.29,18C17,16.88 15.67,15.75 14.54,15.1C15.1,14.69 15.5,14.03 15.5,13.25A3.25,3.25 0 0,0 12.25,10A3.25,3.25 0 0,0 9,13.25C9,14.03 9.38,14.69 9.95,15.1C8.82,15.75 7.5,16.88 7.2,18C5.54,16.56 4.5,14.4 4.5,12A8,8 0 0,1 12,4Z"/></svg>
+                            practical English you can use daily
                         </li>
                         <li>
-                            <svg style="color:var(--primary);flex-shrink:0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            PDF format for LinkedIn, portfolios, and CVs
+                            <svg class="icon fill-yellow" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M15 14a6 6 0 1 0-6 0c0 1.66.89 3.1 2.23 3.96.22.14.37.38.37.64v.4h4.8v-.4c0-.26.15-.5.37-.64A6.004 6.004 0 0 0 15 14z"/></svg>
+                            simple eco concepts
+                        </li>
+                        <li>
+                            <svg class="icon fill-grey" viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/></svg>
+                            printable Environmental English Certificate
                         </li>
                     </ul>
-                    <button class="ee-btn-secondary">Upgrade for Certificate — $7</button>
+
+                    <button class="btn btn-green">Start Free 7-Day Course</button>
+                    <p style="font-size:0.9rem; color:#666; margin-top:12px;">Only 3 minutes a day. No spam.</p>
                 </div>
-                <div style="flex:1; display:flex; justify-content:center;">
-                    <div class="ee-cert-mockup">
-                        <div class="ee-cert-logo-icon">
-                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <div class="cert-title">Environmental<br>English</div>
-                        <div class="cert-subtitle">Level 1 Certificate</div>
-                        <div class="cert-name">Awarded to [Your Name]</div>
-                    </div>
+                <div class="hero-img-wrapper">
+                    <img src="./9e1b58d2-2f7a-48f1-93b0-5a26f71008a5.png" alt="Student" class="hero-img">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ee-section ee-bg-soft">
-        <div class="ee-container">
-            <h2 class="ee-section-title">How It Works</h2>
-            <p class="ee-section-subtitle">A simple path to better English and nature connection.</p>
+    <section class="section learn-section">
+        <div class="container">
+            <h2 class="section-title">What You'll Learn in 7 Days</h2>
             
-            <div class="ee-step-list">
-                <div class="ee-step-item">
-                    <div class="ee-step-num">1</div>
-                    <div>
-                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Join the free 7-day email course</h4>
-                        <p style="color:var(--text-light)">You receive your first lesson immediately.</p>
-                    </div>
-                </div>
-                <div class="ee-step-item">
-                    <div class="ee-step-num">2</div>
-                    <div>
-                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Read one short lesson each day</h4>
-                        <p style="color:var(--text-light)">Simple English + nature knowledge + examples.</p>
-                    </div>
-                </div>
-                <div class="ee-step-item">
-                    <div class="ee-step-num">3</div>
-                    <div>
-                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Complete the final quiz</h4>
-                        <p style="color:var(--text-light)">A gentle review of everything you learned.</p>
-                    </div>
-                </div>
-                <div class="ee-step-item">
-                    <div class="ee-step-num">4</div>
-                    <div>
-                        <h4 style="font-size:1.2rem; margin-bottom:4px;">Unlock your certificate</h4>
-                        <p style="color:var(--text-light)">Get the Environmental English Certificate for only $7.</p>
-                    </div>
-                </div>
+            <div class="badges-row">
+                <div class="badge"><span>📜</span> Certificate included</div>
+                <div class="badge"><span>⏱️</span> Only 3 minutes a day</div>
+                <div class="badge"><span>🌱</span> Beginner-friendly (A2-B1)</div>
             </div>
-            <div style="text-align:center; margin-top:40px;">
-                <a href="#start" class="ee-btn-primary">Start Free 7-Day Course</a>
-            </div>
-        </div>
-    </section>
 
-    <section class="ee-section">
-        <div class="ee-container">
-            <h2 class="ee-section-title">Who This Is For</h2>
-            <div class="ee-tags-cloud">
-                <span class="ee-pill">English learners</span>
-                <span class="ee-pill">Students & teachers</span>
-                <span class="ee-pill">Immigrants</span>
-                <span class="ee-pill">Eco lovers</span>
-                <span class="ee-pill">Nature-connected people</span>
-                <span class="ee-pill">Wellness seekers</span>
-                <span class="ee-pill">Parents</span>
-                <span class="ee-pill">Peaceful learners</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="ee-section ee-bg-green">
-        <div class="ee-container">
-            <h2 class="ee-section-title">Student Feedback</h2>
-            <div class="ee-review-grid">
-                <div class="ee-review-card">
-                    <p class="ee-review-text">“This is the first English course that felt like meditation. I learned, but I also felt calm.”</p>
-                    <div class="ee-review-author">– Nina</div>
+            <div class="cards-grid">
+                <div class="card g-day1">
+                    <span class="card-day">Day 1</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="#4ade80"><path d="M21 3C21 3 19 12 13 18C13 18 5 22 2 22C2 22 4.5 16.5 4.5 12C4.5 7.5 9 3 21 3Z" /></svg>
+                    <h3>Nature Words in Daily Life</h3>
+                    <p>Learn easy, beautiful phrases about trees, plants, and seasons.</p>
                 </div>
-                <div class="ee-review-card">
-                    <p class="ee-review-text">“The certificate helped me in my school portfolio. Thank you!”</p>
-                    <div class="ee-review-author">– Arjun</div>
+                <div class="card g-day2">
+                    <span class="card-day">Day 2</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="#3b82f6"><path d="M2 18C4.5 18 5.5 16 7.5 16C9.5 16 10.5 18 12.5 18C14.5 18 15.5 16 17.5 16C19.5 16 20.5 18 22.5 18V20C20.5 20 19.5 18 17.5 18C15.5 18 14.5 20 12.5 20C10.5 20 9.5 18 7.5 18C5.5 18 4.5 20 2.5 20V18H2Z"/></svg>
+                    <h3>Oceans, Water & Climate</h3>
+                    <p>Talk about oceans, rivers, sea life, and pollution.</p>
                 </div>
-                <div class="ee-review-card">
-                    <p class="ee-review-text">“I love nature vocabulary. I never learned this in textbooks.”</p>
-                    <div class="ee-review-author">– Sara</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ee-section" id="start" style="text-align:center; padding: 100px 0;">
-        <div class="ee-container">
-            <h2 class="ee-section-title">Ready to Grow Your English?</h2>
-            <p style="font-size:1.2rem; color:var(--text-body); margin-bottom:32px;">
-                Join the 7-day journey and earn your <strong>Environmental English Certificate</strong>.
-            </p>
-            <a href="#" class="ee-btn-primary">
-                Start Free 7-Day Course →
-            </a>
-            <p class="ee-hero-note">Only 3 minutes a day. No stress, no spam.</p>
-        </div>
-    </section>
-
-    <footer class="ee-footer">
-        <div class="ee-container">
-            © 2025 Enlighten Academy. All rights reserved.
-        </div>
-    </footer>
-
-</body>
-</html>
-
+                <div class="card g-day3">
+                    <span class="card-day">Day 3</span>
+                 
